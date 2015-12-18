@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">ErBao</string>
     <string name="action_settings">Settings</string>
+    <string name="fragment_first_page">首页</string>
+    <string name="fragment_my_record">记录</string>
+    <string name="fragment_my_classroom">课堂</string>
+    <string name="fragment_my_center">我的</string>
 </resources>
