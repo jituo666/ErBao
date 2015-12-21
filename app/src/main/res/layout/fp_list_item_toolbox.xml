@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:minHeight="72dp"
+    android:background="#f8f8f8"
+    android:orientation="horizontal">
+
+    <include
+        android:id="@+id/tool_1"
+        layout="@layout/toolbox_item"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <include
+        android:id="@+id/tool_2"
+        layout="@layout/toolbox_item"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <include
+        android:id="@+id/tool_3"
+        layout="@layout/toolbox_item"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <include
+        android:id="@+id/tool_4"
+        layout="@layout/toolbox_item"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+</LinearLayout>

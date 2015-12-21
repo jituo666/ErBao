@@ -1,20 +1,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.xiaoyu.erbao.entries.MainActivity">
+    android:orientation="vertical">
 
     <include layout="@layout/main_title_bar" />
 
-    <LinearLayout
+    <FrameLayout
         android:id="@+id/fgContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_weight="1">
 
-    </LinearLayout>
+    </FrameLayout>
 
     <LinearLayout
         android:id="@+id/buttonPanel"
