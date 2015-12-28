@@ -2,9 +2,9 @@ package com.xiaoyu.erbao.cctrls;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -28,7 +28,7 @@ public class TempView extends View {
     private SimpleDateFormat mDateFormat;
     private ScrollListener mScrollListener;
     private boolean mTouchDown;
-    private int mTemperatures[] = new int[TempViewLayout.SHOW_DAYS];
+    private int mTemperatures[];
 
     public interface ScrollListener {
         public void onScrollTo(int index);
@@ -57,11 +57,14 @@ public class TempView extends View {
         mLayout = new TempViewLayout(getResources(), 0, 0);
         mTempAtrrs = mLayout.getLayoutAtrrs();
         mDateFormat = new SimpleDateFormat("MM/dd");
-        //
-        mTemperatures[0] = 0;
-        mTemperatures[1] = 0;
-        for (int i = 2; i < mTemperatures.length; i++) {
-            mTemperatures[i] = 355 + new Random().nextInt(20);
+        //test
+        mTemperatures = new int[TempViewLayout.TOTAL_SHOW_DAYS + 1];
+        for (int i = 0; i < mTemperatures.length; i++) {
+            if (i <= TempViewLayout.PRE_SHOW_DAYS) {
+                mTemperatures[i] = Util.INVALIDE_VALUE;
+            } else {
+                mTemperatures[i] = 360 + new Random().nextInt(11);
+            }
         }
     }
 
@@ -88,21 +91,20 @@ public class TempView extends View {
         int currentPosition = mScroller.getCurrX();
         mLayout.setScrollPosition(currentPosition);
         drawGridBackground(canvas);
-        drawTempratureLine(canvas);
+        drawTemperatureLine(canvas);
         if (more) {
             invalidate();
         } else if (!mTouchDown) {
-            int offset = currentPosition % mLayout.getmColumnWidth();
-            if (offset != 0) {
-                if (Math.abs(offset) >= mLayout.getmColumnWidth() / 2) {//进
-                    int dx = mLayout.getmColumnWidth() - Math.abs(offset);
+            int offset = currentPosition % mLayout.getColumnWidth();
+            if (offset != 0) { // 吸附功能
+                if (Math.abs(offset) >= mLayout.getColumnWidth() / 2) {//进
+                    int dx = mLayout.getColumnWidth() - Math.abs(offset);
                     mScroller.startScroll(mScroller.getCurrX(), mScroller.getCurrY(), offset > 0 ? dx : -dx, 0);
                 } else {//退
                     mScroller.startScroll(mScroller.getCurrX(), mScroller.getCurrY(), -offset, 0);
                 }
                 invalidate();
             } else {
-                //Log.i("xxdd",mLayout.getVisibleEnd() + " ---- " + mLayout.getVisibleStart());
                 mScrollListener.onScrollTo(mLayout.getVisibleStart());
             }
         }
@@ -112,35 +114,39 @@ public class TempView extends View {
         Paint gridLinePaint = new Paint();
         gridLinePaint.setColor(mTempAtrrs.gridLineColor);
         gridLinePaint.setStrokeWidth(mTempAtrrs.gridLineSize);
-        //
+        // 日期paint
         Paint datePaint = new Paint();
         datePaint.setColor(mTempAtrrs.dateTextColor);
         datePaint.setTextSize(mTempAtrrs.dateTextSize);
-        int offsetX = mLayout.getmColumnWidth() - mScroller.getCurrX() % mLayout.getmColumnWidth();
-        int columnCount = mLayout.getColumnCount()+1;
-        int rowCount = mLayout.getRowCount() + 1;
-        for (int i = columnCount; i >= 0; i--) {//竖线
-            int fromX = offsetX + mLayout.getContainerWidth() - (i) * mLayout.getmColumnWidth();
-            int fromY = mLayout.getMarginY();
-            int toX = fromX;
-            int toY = mLayout.getContainerHeight() + mLayout.getMarginY();
+        int columnWidth = mLayout.getColumnWidth();
+        int rowHeight = mLayout.getRowHeight();
+        int offsetX = (columnWidth - mScroller.getCurrX() % columnWidth) % columnWidth;
+        int columnCount = TempViewLayout.COLUMN_COUNT;
+        int rowCount = TempViewLayout.ROW_COUNT;
+        int marginY = mLayout.getMarginY();
+        int fromX;
+        int toX;
+        int fromY = marginY;
+        int toY = mLayout.getContainerHeight() + marginY;
+        for (int i = (columnCount + 1); i >= -1; i--) { // 绘制竖线和日期,左右各扩展一个
+            fromX = offsetX + mLayout.getContainerWidth() - i * columnWidth;
+            toX = fromX;
             c.drawLine(fromX, fromY, toX, toY, gridLinePaint);
-            String text = mDateFormat.format(new Date(System.currentTimeMillis() - (mLayout.getVisibleStart() + i - TempViewLayout.PRE_SHOW_DAYS-1) * Util.DAY_IN_MILLSECONDS));
-            c.drawText(text, fromX - mLayout.getmColumnWidth() / 2, fromY - mTempAtrrs.gradTextLeftMargin / 2, datePaint);
+            String text = mDateFormat.format(new Date(System.currentTimeMillis() - (mLayout.getVisibleStart() + i - TempViewLayout.PRE_SHOW_DAYS) * Util.DAY_IN_MILLSECONDS));
+            c.drawText(text, fromX - columnWidth / 2, fromY - mTempAtrrs.gradTextLeftMargin / 2, datePaint);
         }
-        //
-        Paint gradTextPaint = new Paint();
-        gradTextPaint.setColor(mTempAtrrs.gradTextColor);
-        gradTextPaint.setTextSize(mTempAtrrs.gradTextSize);
-        for (int i = 0; i < rowCount; i++) {//横线
-
-            int fromX = 0;
-            int fromY = i * mLayout.getRowHeight() + mLayout.getMarginY();
-            int toX = mLayout.getContainerWidth();
-            int toY = fromY;
-            if (i % 5 == 0) {
-                c.drawText(mLayout.getGradLabels()[i / 5], toX - 2 * mLayout.getmColumnWidth() + mTempAtrrs.gradTextLeftMargin, toY, gradTextPaint);
-                if (mLayout.getGradLabels()[i / 5].length() > 0) {
+        //刻度标签paint
+        Paint gradLabelPaint = new Paint();
+        gradLabelPaint.setColor(mTempAtrrs.gradTextColor);
+        gradLabelPaint.setTextSize(mTempAtrrs.gradTextSize);
+        fromX = 0;
+        toX = mLayout.getContainerWidth();
+        for (int i = 0; i <= rowCount; i++) { // 横线
+            fromY = i * rowHeight + marginY;
+            toY = fromY;
+            if (i % TempViewLayout.GRAD_STEP == 0) {
+                c.drawText(mLayout.getGradLabels()[i / TempViewLayout.GRAD_STEP], toX - 2 * columnWidth + mTempAtrrs.gradTextLeftMargin, toY, gradLabelPaint);
+                if (mLayout.getGradLabels()[i / TempViewLayout.GRAD_STEP].length() > 0) {
                     gridLinePaint.setColor(mTempAtrrs.dividerLineColor);
                 } else {
                     gridLinePaint.setColor(mTempAtrrs.gridLineColor);
@@ -150,42 +156,53 @@ public class TempView extends View {
             }
             c.drawLine(fromX, fromY, toX, toY, gridLinePaint);
         }
+        //温度计标线
         gridLinePaint.setColor(mTempAtrrs.thermometerLineColor);
-        int thermometerLineX = mLayout.getContainerWidth() - 2 * mLayout.getmColumnWidth();
-        c.drawLine(thermometerLineX, mLayout.getMarginY(), thermometerLineX, mLayout.getContainerHeight() + mLayout.getMarginY(), gridLinePaint);
+        int thermometerLineX = mLayout.getContainerWidth() - TempViewLayout.PRE_SHOW_DAYS * columnWidth;
+        c.drawLine(thermometerLineX, marginY, thermometerLineX, mLayout.getContainerHeight() + marginY, gridLinePaint);
     }
 
-    public void drawTempratureLine(Canvas c) {
+    public void drawTemperatureLine(Canvas c) {
         int middleLine = mLayout.getMiddleGridPos();
-        int maxOffset = (mLayout.getRowCount()/5+1)/2 * 5;
-        int minOffset =  mLayout.getRowCount()-mLayout.getRowCount()/2;
-        boolean lastDrawn = false;
-
-        Paint tempPaint = new Paint();
-        tempPaint.setColor(mTempAtrrs.tempLineColor);
-
-        Log.i("xxdd",mLayout.getVisibleStart() + "----------------------------begin:" + mLayout.getVisibleEnd());
-        int offsetX = mLayout.getmColumnWidth() - mScroller.getCurrX() % mLayout.getmColumnWidth();
-        for (int i = 0; i <= mLayout.getColumnCount(); i++) {
-            int x = 0,y = 0;
-            int offset = (mTemperatures[i + mLayout.getVisibleStart()] - 365);
+        int maxOffset = (TempViewLayout.ROW_COUNT / TempViewLayout.GRAD_STEP + 1) / 2 * TempViewLayout.GRAD_STEP;
+        int minOffset = TempViewLayout.ROW_COUNT - TempViewLayout.ROW_COUNT / 2;
+        int lastX = Util.INVALIDE_VALUE;
+        int lastY = Util.INVALIDE_VALUE;
+        Paint tempDotPaint = new Paint();
+        tempDotPaint.setColor(mTempAtrrs.tempLineColor);
+        Paint tempLinePaint = new Paint();
+        tempLinePaint.setAntiAlias(true);
+        tempLinePaint.setStrokeWidth(mTempAtrrs.tempLineSize);
+        tempLinePaint.setColor(mTempAtrrs.tempLineColor);
+        int offsetX = (mLayout.getColumnWidth() - mScroller.getCurrX() % mLayout.getColumnWidth()) % mLayout.getColumnWidth();
+        int xPos[] = new int[TempViewLayout.COLUMN_COUNT + 3];
+        int yPos[] = new int[TempViewLayout.COLUMN_COUNT + 3];
+        // 加2是因为左右两边各要多绘一个温度
+        for (int i = 0; i <= TempViewLayout.COLUMN_COUNT + 2; i++) {
+            int offset = (mTemperatures[i + mLayout.getVisibleStart()] - TempViewLayout.MIDDLE_GRAD); // 温度和中间线的偏移量
             if (Math.abs(offset) > maxOffset || Math.abs(offset) > minOffset) {
-                lastDrawn = false;
+                lastX = Util.INVALIDE_VALUE;
+                lastY = Util.INVALIDE_VALUE;
             } else {
-                lastDrawn= true;
-                x = offsetX + mLayout.getContainerWidth() - mLayout.getmColumnWidth()*(i+1);
-                y = middleLine-offset * mLayout.getRowHeight();
-                c.drawCircle(x,y,12,tempPaint);
+                int x = offsetX + mLayout.getContainerWidth() - mLayout.getColumnWidth() * (i - 1);//减1是因为右边要多绘制一个温度
+                int y = middleLine - offset * mLayout.getRowHeight();
+                if (lastX != Util.INVALIDE_VALUE && lastY != Util.INVALIDE_VALUE) {
+                    c.drawLine(x, y, lastX, lastY, tempLinePaint);
+                }
+                xPos[i] = x;
+                yPos[i] = y;
+                lastX = x;
+                lastY = y;
             }
-
-            Log.i("xxdd","----------------------------tem " + mTemperatures[i] + " drawn :" + lastDrawn
-             + " x:" + x + " y :" + y);
-//            Log.i("xxdd", " maxoffset: " + maxOffset +
-//                    " minoffset: " + minOffset + " mTempratures[i]: " + mTempratures[i] +
-//             " lastDrawn: " + lastDrawn);
         }
-
-        Log.i("xxdd","----------------------------end");
+        for (int i = 0; i <= TempViewLayout.COLUMN_COUNT + 2; i++) {
+            tempDotPaint.setColor(Color.WHITE);
+            c.drawCircle(xPos[i], yPos[i], 15, tempDotPaint);
+            tempDotPaint.setColor(mTempAtrrs.tempLineColor);
+            c.drawCircle(xPos[i], yPos[i], 10, tempDotPaint);
+            tempDotPaint.setColor(Color.WHITE);
+            c.drawCircle(xPos[i], yPos[i], 5, tempDotPaint);
+        }
     }
 
     private class MyGestureListener implements GestureDetector.OnGestureListener {

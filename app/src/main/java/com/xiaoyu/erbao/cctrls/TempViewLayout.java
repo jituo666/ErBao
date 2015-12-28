@@ -9,9 +9,14 @@ import com.xiaoyu.erbao.R;
  */
 public class TempViewLayout {
     public static final int PRE_SHOW_DAYS = 2;
-    public static final int SHOW_DAYS = 365 + PRE_SHOW_DAYS;
-    private static final int COLUMN_COUNT = 12;
-    private static final int ROW_COUNT = 30;
+    public static final int SHOW_DAYS = 365;
+    public static final int TOTAL_SHOW_DAYS = PRE_SHOW_DAYS + SHOW_DAYS;
+    public static final int GRAD_STEP = 5;
+    public static final int MIDDLE_GRAD = 365;
+
+    public static final int COLUMN_COUNT = 12;
+    public static final int ROW_COUNT = 30;
+
     private int mColumnWidth;
     private int mRowHeight;
     private int mMarginY;
@@ -57,7 +62,7 @@ public class TempViewLayout {
         mContainerHeight = mContainerHeight - mContainerHeight % ROW_COUNT;
         mColumnWidth = mContainerWidth / COLUMN_COUNT;
         mRowHeight = mContainerHeight / ROW_COUNT;
-        mContentLength = SHOW_DAYS* mColumnWidth;
+        mContentLength = SHOW_DAYS * mColumnWidth;
         initGradLabels();
         ////
         mAttrs = new LayoutAttrs();
@@ -78,16 +83,17 @@ public class TempViewLayout {
     }
 
     private void initGradLabels() {
-        int count = ROW_COUNT / 5 + 1;
+        int count = ROW_COUNT / GRAD_STEP + 1;
         mGradLabels = new String[count];
-        int middleGrad = count / 2;
+        int middleGrad = (count) / 2;
         for (int i = 0; i < count; i++) {
             mGradLabels[count - 1 - i] = String.format("%2.1f", (365 - (middleGrad - i) * 5.0f) / 10);
             // Log.d("xxdd", i + " -------- " + mGradLabels[i]);
         }
+        //最顶部和最底部的温度刻度目前为空
         mGradLabels[0] = "";
         mGradLabels[count - 1] = "";
-        mMiddleGridPos = (middleGrad) * mRowHeight * 5 + getMarginY();
+        mMiddleGridPos = (middleGrad) * mRowHeight * GRAD_STEP + getMarginY();
     }
 
     public LayoutAttrs getLayoutAtrrs() {
@@ -107,21 +113,12 @@ public class TempViewLayout {
         return mMiddleGridPos;
     }
 
-    public int getmColumnWidth() {
+    public int getColumnWidth() {
         return mColumnWidth;
     }
 
     public int getRowHeight() {
         return mRowHeight;
-    }
-
-    public int getColumnCount() {
-        return COLUMN_COUNT;
-    }
-
-
-    public int getRowCount() {
-        return ROW_COUNT;
     }
 
     public int getContainerWidth() {
