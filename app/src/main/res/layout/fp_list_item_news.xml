@@ -1,14 +1,70 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/current_day"
     android:layout_width="match_parent"
-    android:layout_height="48dp"
-    android:minHeight="48dp"
-    android:background="#33ff00"
+    android:layout_height="168dp"
+    android:padding="4dp"
+    android:minHeight="196dp"
     android:orientation="horizontal">
 
-    <TextView
+    <ImageView
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:scaleType="center"
+        android:src="@drawable/test_image" />
+
+    <LinearLayout
         android:id="@+id/news_title"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="12dp"
         android:layout_height="match_parent"
-        android:text="New" />
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:text="New">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="18dp"
+            android:text="999999"
+            android:textSize="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:text="000000000000"
+            android:textSize="12dp" />
+
+        <ImageView
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="fitXY"
+            android:src="@drawable/test_image" />
+
+        <RelativeLayout
+            android:id="@+id/knowledge_marks"
+            android:layout_width="match_parent"
+            android:layout_marginTop="4dp"
+            android:layout_height="12dp">
+
+            <ImageView
+                android:id="@+id/knowledge_marks_eye"
+                android:layout_width="12dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="18dp"
+                android:layout_marginRight="64dp"
+                android:scaleType="center"
+                android:src="@drawable/test_image" />
+
+            <ImageView
+                android:id="@+id/knowledge_marks_fav"
+                android:layout_width="12dp"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/knowledge_marks_eye"
+                android:scaleType="center"
+                android:src="@drawable/test_image" />
+        </RelativeLayout>
+    </LinearLayout>
 </LinearLayout>

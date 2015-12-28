@@ -3,4 +3,14 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="temp_view_margin_y">24dp</dimen>
+    <!-- Temprature layout attrs -->
+
+    <dimen name="temp_dateTextSize">10sp</dimen>
+    <dimen name="temp_gradTextSize">12sp</dimen>
+    <dimen name="temp_gradTextLeftMargin">7dp</dimen>
+    <dimen name="temp_gridLineSize">0.5dp</dimen>
+    <dimen name="temp_dividerLineSize">0.5dp</dimen>
+    <dimen name="temp_tempLineSize">2dp</dimen>
+    <dimen name="temp_thermometerLineSize">0.5dp</dimen>
 </resources>

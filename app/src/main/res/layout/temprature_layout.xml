@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/title_bar_general"></include>
+
+    <RelativeLayout
+        android:id="@+id/record_tips"
+        android:layout_width="match_parent"
+        android:layout_height="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/tip_aq"
+            style="@style/style_record_tip_1"
+            android:layout_centerHorizontal="true"
+            android:drawableLeft="@drawable/shape_circle_aq"
+            android:text="@string/date_text_aq"
+            android:textColor="@color/date_anquanqi" />
+
+        <TextView
+            style="@style/style_record_tip_1"
+            android:layout_toLeftOf="@+id/tip_aq"
+            android:drawableLeft="@drawable/shape_circle_yj"
+            android:text="@string/date_text_yj"
+            android:textColor="@color/date_yuejingqi" />
+
+        <TextView
+            style="@style/style_record_tip_1"
+            android:layout_toRightOf="@+id/tip_aq"
+            android:drawableLeft="@drawable/shape_circle_pl"
+            android:text="@string/date_text_pl"
+            android:textColor="@color/date_pailuanqi" />
+
+    </RelativeLayout>
+
+    <com.xiaoyu.erbao.cctrls.TempView
+        android:id="@+id/temp_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </com.xiaoyu.erbao.cctrls.TempView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp">
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="24dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/test_image" />
+
+        <ImageView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="24dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/test_image" />
+    </RelativeLayout>
+</LinearLayout>

@@ -3,4 +3,17 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+
+    <!-- Temprature layout color -->
+
+    <color name="temp_dateTextColor">#acadb5</color>
+    <color name="temp_gradTextColor">#919299</color>
+    <color name="temp_gridLineColor">#dbdbdb</color>
+    <color name="temp_dividerLineColor">#cccbc8</color>
+    <color name="temp_tempLineColor">#88c057</color>
+    <color name="temp_thermometerLineColor">#fd7979</color>
+    <color name="date_yuejingqi">#ff0000</color>
+    <color name="date_anquanqi">#00ff00</color>
+    <color name="date_pailuanqi">#0000ff</color>
 </resources>

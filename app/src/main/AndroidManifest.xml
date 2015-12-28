@@ -27,15 +27,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.xiaoyu.erbao.entries.DiagnoseActivity"></activity>
+        <activity android:name="com.xiaoyu.erbao.entries.MakeWishActivity"></activity>
+        <activity android:name="com.xiaoyu.erbao.entries.TempratureActivity"></activity>
+        <activity android:name="com.xiaoyu.erbao.entries.LabSheetActivity"></activity>
+        <activity android:name="com.xiaoyu.erbao.myCenter.LoginActivity"></activity>
+        <activity android:name="com.xiaoyu.erbao.myCenter.MyCenterActivity"></activity>
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5673d975e0f55ab283004100" >
-        </meta-data>
+            android:value="5673d975e0f55ab283004100"></meta-data>
         <meta-data
             android:name="UMENG_CHANNEL"
-            android:value="Umeng" >
-        </meta-data>
+            android:value="Umeng"></meta-data>
     </application>
 
 </manifest>

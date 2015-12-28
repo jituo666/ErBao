@@ -3,6 +3,7 @@ package com.xiaoyu.erbao.adapters;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
@@ -96,7 +97,6 @@ public class CalendarAdapter extends BaseAdapter {
         this();
         mContext = context;
         mMyCalendar = new MyCalendar();
-        //mLunarCalendar = new LunarCalendar();
         mCurrentYear = String.valueOf(year);// 得到跳转到的年份
         mCurrentMonth = String.valueOf(month); // 得到跳转到的月份
         mCurrentDay = String.valueOf(day); // 得到跳转到的天
@@ -128,7 +128,7 @@ public class CalendarAdapter extends BaseAdapter {
         String d = mDateArray[position].split("\\.")[0];
 
         SpannableString sp = new SpannableString(d);
-        sp.setSpan(new StyleSpan(android.graphics.Typeface.BOLD), 0, d.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        sp.setSpan(new StyleSpan(Typeface.NORMAL), 0, d.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         sp.setSpan(new RelativeSizeSpan(1.2f), 0, d.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(sp);

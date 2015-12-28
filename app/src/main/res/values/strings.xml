@@ -5,4 +5,8 @@
     <string name="fragment_my_record">记录</string>
     <string name="fragment_my_classroom">课堂</string>
     <string name="fragment_my_center">我的</string>
+    <string name="format_date">"yyyy年MM月dd日"</string>
+    <string name="date_text_yj">月经期</string>
+    <string name="date_text_pl">排卵期</string>
+    <string name="date_text_aq">安全期</string>
 </resources>

@@ -8,6 +8,10 @@ public class MyCalendar {
 	private int mDaysOfMonth = 0; // 某月的天数
 	private int mDayOfWeek = 0; // 具体某一天是星期几
 
+	public MyCalendar() {
+
+	}
+
 	// 判断是否为闰年
 	public boolean isLeapYear(int year) {
 		if (year % 100 == 0 && year % 400 == 0) {

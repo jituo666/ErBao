@@ -12,7 +12,7 @@ import com.xiaoyu.erbao.R;
 /**
  * Created by jituo on 15/12/18.
  */
-public class FragmentMyClassromm extends Fragment {
+public class FragmentMyClassroom extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
