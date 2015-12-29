@@ -17,16 +17,16 @@ public class TempViewLayout {
     public static final int COLUMN_COUNT = 12;
     public static final int ROW_COUNT = 30;
 
-    private int mColumnWidth;
-    private int mRowHeight;
-    private int mMarginY;
+    private float mColumnWidth;
+    private float mRowHeight;
+    private float mDateTextHeight;
     private int mContainerWidth;
     private int mContainerHeight;
-    private int mContentLength;
-    protected int mScrollPosition = -1;
+    private float mContentLength;
+    protected float mScrollPosition = -1;
     private int mVisibleStart;
     private int mVisibleEnd;
-    private int mMiddleGridPos;
+    private float mMiddleGridPos;
     private LayoutAttrs mAttrs;
     private Resources mRes;
     private String mGradLabels[];
@@ -56,12 +56,11 @@ public class TempViewLayout {
 
     public TempViewLayout(Resources res, int viewWidth, int viewHeight) {
         mRes = res;
-        mMarginY = mRes.getDimensionPixelSize(R.dimen.temp_view_margin_y);
+        mDateTextHeight = mRes.getDimensionPixelSize(R.dimen.temp_view_margin_y);
         mContainerWidth = viewWidth;
-        mContainerHeight = viewHeight - 2 * mMarginY;
-        mContainerHeight = mContainerHeight - mContainerHeight % ROW_COUNT;
+        mContainerHeight = viewHeight;
         mColumnWidth = mContainerWidth / COLUMN_COUNT;
-        mRowHeight = mContainerHeight / ROW_COUNT;
+        mRowHeight = (mContainerHeight-mDateTextHeight) / ROW_COUNT;
         mContentLength = SHOW_DAYS * mColumnWidth;
         initGradLabels();
         ////
@@ -85,7 +84,7 @@ public class TempViewLayout {
     private void initGradLabels() {
         int count = ROW_COUNT / GRAD_STEP + 1;
         mGradLabels = new String[count];
-        int middleGrad = (count) / 2;
+        float middleGrad = (count) / 2;
         for (int i = 0; i < count; i++) {
             mGradLabels[count - 1 - i] = String.format("%2.1f", (365 - (middleGrad - i) * 5.0f) / 10);
             // Log.d("xxdd", i + " -------- " + mGradLabels[i]);
@@ -93,7 +92,7 @@ public class TempViewLayout {
         //最顶部和最底部的温度刻度目前为空
         mGradLabels[0] = "";
         mGradLabels[count - 1] = "";
-        mMiddleGridPos = (middleGrad) * mRowHeight * GRAD_STEP + getMarginY();
+        mMiddleGridPos = (middleGrad) * mRowHeight * GRAD_STEP + getDateTextHeight();
     }
 
     public LayoutAttrs getLayoutAtrrs() {
@@ -109,15 +108,15 @@ public class TempViewLayout {
      *
      * @return
      */
-    public int getMiddleGridPos() {
+    public float getMiddleGridPos() {
         return mMiddleGridPos;
     }
 
-    public int getColumnWidth() {
+    public float getColumnWidth() {
         return mColumnWidth;
     }
 
-    public int getRowHeight() {
+    public float getRowHeight() {
         return mRowHeight;
     }
 
@@ -129,12 +128,12 @@ public class TempViewLayout {
         return mContainerHeight;
     }
 
-    public int getMarginY() {
-        return mMarginY;
+    public float getDateTextHeight() {
+        return mDateTextHeight;
     }
 
-    public int getLengthLimit() {
-        int limit = mContentLength - mContainerWidth;
+    public float getLengthLimit() {
+        float limit = mContentLength - mContainerWidth;
         return limit <= 0 ? 0 : limit;
     }
 
@@ -148,13 +147,13 @@ public class TempViewLayout {
     }
 
 
-    public void setScrollPosition(int position) {
+    public void setScrollPosition(float position) {
 
         if (mScrollPosition == position)
             return;
         mScrollPosition = position;
-        int start = (-position) / mColumnWidth;
-        int end = start + mContainerWidth / mColumnWidth;
+        int start = (int)((-position) / mColumnWidth);
+        int end = (int)(start + mContainerWidth / mColumnWidth);
         if (mVisibleStart == start && mVisibleEnd == end)
             return;
         if (start < end) {

@@ -3,7 +3,7 @@
     android:shape="oval"
     android:useLevel="false">
 
-    <solid android:color="@color/date_anquanqi" />
+    <solid android:color="@color/date_aq" />
 
     <size
         android:width="8dp"

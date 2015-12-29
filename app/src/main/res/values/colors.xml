@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="title_bar_bg">#3dafa5</color>
 
 
     <!-- Temprature layout color -->
@@ -13,7 +14,13 @@
     <color name="temp_dividerLineColor">#cccbc8</color>
     <color name="temp_tempLineColor">#88c057</color>
     <color name="temp_thermometerLineColor">#fd7979</color>
-    <color name="date_yuejingqi">#ff0000</color>
-    <color name="date_anquanqi">#00ff00</color>
-    <color name="date_pailuanqi">#0000ff</color>
+    <color name="date_yj">#ff73a8</color>
+    <color name="date_aq">#4bc2ff</color>
+    <color name="date_pl">#ff6464</color>
+
+    <color name="date_yj_bg">#fff0f0</color>
+    <color name="date_aq_bg">#f0f8ff</color>
+    <color name="date_pl_bg">#fcedf8</color>
+
+    <color name="alarm_text_color">#666666</color>
 </resources>

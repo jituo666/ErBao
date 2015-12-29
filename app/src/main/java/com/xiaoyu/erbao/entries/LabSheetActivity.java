@@ -12,6 +12,11 @@ public class LabSheetActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.temprature_layout);
+        setContentView(R.layout.temprature_layout);
+    }
+
+    @Override
+    public void onBackPressed() {
+        finish();
     }
 }

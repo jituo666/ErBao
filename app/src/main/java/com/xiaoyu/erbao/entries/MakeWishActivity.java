@@ -14,4 +14,9 @@ public class MakeWishActivity extends Activity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.temprature_layout);
     }
+
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
 }

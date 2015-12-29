@@ -41,4 +41,9 @@ public class TempratureActivity extends Activity implements TempView.ScrollListe
         mTitle.setText(date);
 
     }
+
+    @Override
+    public void onBackPressed() {
+       finish();
+    }
 }
