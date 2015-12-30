@@ -138,11 +138,11 @@ public class CalendarAdapter extends BaseAdapter {
             // 当前月信息显示
             textView.setTextColor(Color.BLACK);// 当月字体设黑
             drawable = new ColorDrawable(Color.rgb(23, 126, 214));
-            if (position % 7 == 0 || position % 7 == 6) {
-                // 当前月信息显示
-                textView.setTextColor(Color.rgb(23, 126, 214));// 当月字体设黑
-                drawable = new ColorDrawable(Color.rgb(23, 126, 214));
-            }
+//            if (position % 7 == 0 || position % 7 == 6) {
+//                // 当前月信息显示
+//                textView.setTextColor(Color.rgb(23, 126, 214));// 当月字体设黑
+//                drawable = new ColorDrawable(Color.rgb(23, 126, 214));
+//            }
         }
 
         if (currentFlag == position) {

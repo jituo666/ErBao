@@ -58,9 +58,12 @@
             android:layout_centerVertical="true"
             android:text="@string/temp_input_alarm"
             android:scaleType="fitCenter"
-            android:gravity="center"
-            android:textSize="@dimen/common_small_text_size"
-            android:background="@drawable/alarm" />c
+            android:gravity="left|center_vertical"
+            android:textSize="@dimen/common_xsmall_text_size"
+            android:drawablePadding="2dp"
+            android:paddingLeft="4dp"
+            android:drawableLeft="@drawable/ic_alarm_clock"
+            android:background="@drawable/alarm_bg" />c
 
         <TextView
             android:layout_width="74dp"
@@ -71,6 +74,6 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/common_small_text_size"
             android:gravity="center"
-            android:background="@drawable/thermometer_bottom" />
+            android:background="@drawable/ic_thermometer_bottom" />
     </RelativeLayout>
 </LinearLayout>

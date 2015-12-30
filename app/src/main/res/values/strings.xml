@@ -10,5 +10,5 @@
     <string name="date_text_pl">排卵期</string>
     <string name="date_text_aq">安全期</string>
     <string name="temp_input">请输入\n体温</string>
-    <string name="temp_input_alarm">%s提醒</string>
+    <string name="temp_input_alarm">8:00 提醒</string>
 </resources>

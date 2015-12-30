@@ -7,11 +7,10 @@
     <ImageView
         android:id="@+id/left_btn"
         android:layout_width="48dp"
-        android:layout_marginLeft="4dp"
         android:layout_height="match_parent"
         android:layout_alignParentLeft="true"
         android:scaleType="center"
-        android:src="@drawable/prev_month" />
+        android:src="@drawable/ic_common_back" />
 
     <ImageView
         android:id="@+id/right_btn"
@@ -20,7 +19,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:scaleType="center"
-        android:src="@drawable/help" />
+        android:src="@drawable/ic_help" />
 
 
     <TextView
