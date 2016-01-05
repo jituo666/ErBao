@@ -149,9 +149,7 @@ public class FragmentMyRecord extends Fragment implements View.OnClickListener {
     }
 
     public void addTextToTopTextView(TextView view) {
-        StringBuffer textDate = new StringBuffer();
-        textDate.append(mCalendarAdapter.getShowYear()).append("年").append(mCalendarAdapter.getShowMonth()).append("月").append("\t");
-        view.setText(textDate);
+        view.setText(String.format("%s/%02d",mCalendarAdapter.getShowYear(),Integer.valueOf(mCalendarAdapter.getShowMonth())));
     }
 
     private void addGridView() {

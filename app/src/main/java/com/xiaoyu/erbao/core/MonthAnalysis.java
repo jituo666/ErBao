@@ -11,12 +11,10 @@ public class MonthAnalysis {
         public long end;
     }
 
-    private long mLastMensStartDate;
-    private long mMensPeriod;
-    private DateInterval mYJ;
-    private DateInterval mPL;
-    private DateInterval mYCYJ;
+    private long mLastMensStartDate;//上次月经
+    private long mMensPeriod;//月经周期天数
+    private DateInterval mYJ;//月经日期
+    private DateInterval mPL; //排卵日期
+    private DateInterval mYCYJ;//预测月经日期
     private long mPLDate;
-    //
-
 }

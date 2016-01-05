@@ -38,8 +38,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mBtnMyClassRoom.setOnClickListener(this);
         mBtnMyCenter = (TextView) findViewById(R.id.myCenter);
         mBtnMyCenter.setOnClickListener(this);
-        //
-
+        //初始化,加载首页
         mFragmentFirstPage = new FragmentFirstPage();
         mFragmentMyRecord = new FragmentMyRecord();
         mFragmentMyClassroom = new FragmentMyClassroom();
@@ -47,9 +46,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         FragmentTransaction transaction = mFragmentManager.beginTransaction();
         transaction.add(R.id.fgContainer, mFragmentFirstPage);
         transaction.commit();
+        mBtnFirstPage.setSelected(true);
     }
 
-    private void showFragment(Fragment f,View slelctedView) {
+    private void showFragment(Fragment f,View selectedView) {
         if (!f.isAdded()) {
             FragmentTransaction transaction = mFragmentManager.beginTransaction();
             transaction.add(R.id.fgContainer, f);
@@ -63,7 +63,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         mBtnMyRecord.setSelected(false);
         mBtnMyClassRoom.setSelected(false);
         mBtnMyCenter.setSelected(false);
-        slelctedView.setSelected(true);
+        selectedView.setSelected(true);
     }
 
 

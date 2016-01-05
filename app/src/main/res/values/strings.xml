@@ -5,10 +5,33 @@
     <string name="fragment_my_record">记录</string>
     <string name="fragment_my_classroom">课堂</string>
     <string name="fragment_my_center">我的</string>
+    <string name="fp_toolbox_tw">基础体温</string>
+    <string name="fp_toolbox_zj">二胎自检</string>
+    <string name="fp_toolbox_hyd">化验单</string>
+    <string name="fp_toolbox_wish">许愿</string>
     <string name="format_date">"yyyy/MM/dd"</string>
     <string name="date_text_yj">月经期</string>
     <string name="date_text_pl">排卵期</string>
     <string name="date_text_aq">安全期</string>
+    <string name="date_text_plr">排卵日</string>
+    <string name="date_text_yc">预测期</string>
+    <string name="date_text_aa">爱爱</string>
     <string name="temp_input">请输入\n体温</string>
     <string name="temp_input_alarm">8:00 提醒</string>
+
+    <!-- -->
+
+    <string name="record_item_ys">叶酸</string>
+    <string name="record_item_yd">运动</string>
+    <string name="record_item_aa">爱爱</string>
+    <string name="record_item_yjl">月经开始</string>
+    <string name="record_item_yjz">月经结束</string>
+    <string name="record_item_tw">体温</string>
+    <string name="record_item_bd">白带</string>
+    <string name="record_item_pl">排卵试纸</string>
+    <string name="record_item_zy">早孕试纸</string>
+    <string name="record_item_bw">备忘录</string>
+    <string name="record_item_makewish">许愿</string>
+    <string name="record_item_feeling">心情</string>
+    <string name="record_item_symptom">症状</string>
 </resources>

@@ -16,9 +16,10 @@ public class MyDaoGenerator {
         addDayRecord(schema);
         addNewsList(schema);
         addKnownledgeList(schema);
-        new DaoGenerator().generateAll(schema, "/Users/jituo/Dev/Fav/ErBao/app/src/generate");
+        new DaoGenerator().generateAll(schema, "/Users/jituo/Dev/Fav/ErBao/app/src/gen-db");
     }
 
+    //每日记录
     private static void addDayRecord(Schema schema) {
         Entity note = schema.addEntity("DayRecord");
         note.addIdProperty();
@@ -40,6 +41,7 @@ public class MyDaoGenerator {
     }
 
 
+    // 新闻文章
     private static void addNewsList(Schema schema) {
         Entity newsList = schema.addEntity("NewsList");
         newsList.addIdProperty();
@@ -55,6 +57,7 @@ public class MyDaoGenerator {
         newsList.addStringProperty("says");
     }
 
+    //知识文章
     private static void addKnownledgeList(Schema schema) {
         Entity newsList = schema.addEntity("KnownledgeList");
         newsList.addIdProperty();

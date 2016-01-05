@@ -14,39 +14,31 @@
     <LinearLayout
         android:id="@+id/buttonPanel"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="52dp"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/firstPage"
-            android:layout_width="0dp"
-            android:text="@string/fragment_first_page"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1" />
+            style="@style/style_menu_item"
+            android:drawableTop="@drawable/main_menu_item_sy"
+            android:text="@string/fragment_first_page" />
 
         <TextView
             android:id="@+id/myRecord"
-            android:layout_width="0dp"
-            android:text="@string/fragment_my_record"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1" />
+            style="@style/style_menu_item"
+            android:drawableTop="@drawable/main_menu_item_record"
+            android:text="@string/fragment_my_record" />
 
         <TextView
             android:id="@+id/myClassroom"
-            android:layout_width="0dp"
-            android:text="@string/fragment_my_classroom"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1"/>
+            style="@style/style_menu_item"
+            android:drawableTop="@drawable/main_menu_item_classroom"
+            android:text="@string/fragment_my_classroom" />
 
         <TextView
             android:id="@+id/myCenter"
-            android:layout_width="0dp"
-            android:text="@string/fragment_my_center"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_weight="1" />
+            style="@style/style_menu_item"
+            android:drawableTop="@drawable/main_menu_item_mine"
+            android:text="@string/fragment_my_center" />
     </LinearLayout>
 </LinearLayout>

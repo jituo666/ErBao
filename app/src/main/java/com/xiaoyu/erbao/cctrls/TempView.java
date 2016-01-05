@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -114,10 +115,12 @@ public class TempView extends View {
 
     private void drawGridBackground(Canvas c) {
         Paint gridLinePaint = new Paint();
+        gridLinePaint.setAntiAlias(true);
         gridLinePaint.setColor(mTempAtrrs.gridLineColor);
         gridLinePaint.setStrokeWidth(mTempAtrrs.gridLineSize);
         // 日期paint
         Paint datePaint = new Paint();
+        datePaint.setAntiAlias(true);
         datePaint.setColor(mTempAtrrs.dateTextColor);
         datePaint.setTextSize(mTempAtrrs.dateTextSize);
         float columnWidth = mLayout.getColumnWidth();
@@ -143,7 +146,7 @@ public class TempView extends View {
         gradLabelPaint.setTextSize(mTempAtrrs.gradTextSize);
         fromX = 0;
         toX = mLayout.getContainerWidth();
-        // 横向元素
+//        // 横向元素
         for (int i = 0; i <= rowCount; i++) {
             fromY = i * rowHeight + textHeight;
             toY = fromY;
@@ -154,16 +157,19 @@ public class TempView extends View {
                             toX - TempViewLayout.PRE_SHOW_DAYS * columnWidth + mTempAtrrs.gradTextLeftMargin,
                             toY, gradLabelPaint);
                     gridLinePaint.setColor(mTempAtrrs.dividerLineColor);
+                    Log.i("xxdd", i + "----------- bold");
                 } else {
                     gridLinePaint.setColor(mTempAtrrs.gridLineColor);
+                    Log.i("xxdd", i + "----------- non-bold");
                 }
             } else {
                 // 横线-网络线
                 gridLinePaint.setColor(mTempAtrrs.gridLineColor); // 横线
+                Log.i("xxdd", i + "----------- non-bold");
             }
             c.drawLine(fromX, fromY, toX, toY, gridLinePaint);
         }
-        // 温度计标线
+        // 温度计标线-红色竖线
         gridLinePaint.setColor(mTempAtrrs.thermometerLineColor);
         float thermometerLineX = mLayout.getContainerWidth() - TempViewLayout.PRE_SHOW_DAYS * columnWidth;
         c.drawLine(thermometerLineX, textHeight, thermometerLineX, mLayout.getContainerHeight() + textHeight, gridLinePaint);

@@ -22,7 +22,7 @@
 
             <TextView
                 style="@style/weekName"
-                android:text="日"/>
+                android:text="日" />
 
             <TextView
                 style="@style/weekName"
@@ -49,11 +49,6 @@
                 android:text="六" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#ff8091a8" />
-
         <ViewFlipper
             android:id="@+id/flipper"
             android:layout_width="fill_parent"
@@ -71,88 +66,195 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:background="#efeeea"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#efeeea">
 
-            <LinearLayout
-                android:id="@+id/record_tips"
+            <RelativeLayout
+                android:id="@+id/record_item_group0"
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="28dp"
                 android:layout_alignParentTop="true"
-                android:background="@color/calendar_bar_bg"
-                >
+                android:background="@color/calendar_bar_bg">
+
 
                 <TextView
-                    style="@style/style_record_tip_1"
-                    android:text="1"
-                    android:textColor="#177ed6" />
+                    android:id="@+id/tip_3"
+                    style="@style/style_record_items_1"
+                    android:layout_centerHorizontal="true"
+                    android:drawableLeft="@drawable/shape_circle_yc_yj"
+                    android:text="@string/date_text_yc" />
 
                 <TextView
-                    style="@style/style_record_tip_1"
-                    android:text="2" />
+                    android:id="@+id/tip_2"
+                    style="@style/style_record_items_1"
+                    android:layout_marginRight="24dp"
+                    android:layout_toLeftOf="@+id/tip_3"
+                    android:drawableLeft="@drawable/shape_circle_pl_2"
+                    android:text="@string/date_text_pl" />
+
 
                 <TextView
-                    style="@style/style_record_tip_1"
-                    android:text="3" />
+                    android:id="@+id/tip_4"
+                    style="@style/style_record_items_1"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/tip_3"
+                    android:drawableLeft="@drawable/shape_circle_yj_2"
+                    android:text="@string/date_text_yj" />
 
                 <TextView
-                    style="@style/style_record_tip_1"
-                    android:text="4" />
+
+                    style="@style/style_record_items_1"
+                    android:layout_marginRight="24dp"
+                    android:layout_toLeftOf="@+id/tip_2"
+                    android:drawableLeft="@drawable/ic_plr_small"
+                    android:text="@string/date_text_plr" />
+
 
                 <TextView
-                    style="@style/style_record_tip_1"
-                    android:text="5" />
+
+                    style="@style/style_record_items_1"
+                    android:layout_marginLeft="24dp"
+                    android:layout_toRightOf="@+id/tip_4"
+                    android:drawableLeft="@drawable/ic_aa"
+                    android:text="@string/date_text_aa" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/record_items_group1"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_below="@+id/record_item_group0"
+                android:layout_marginTop="6dp"
+                android:background="@android:color/white"
+                android:orientation="horizontal"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:id="@+id/record_item_ys"
+                    style="@style/style_record_tip_2"
+                    android:drawableTop="@drawable/ic_ys_no"
+                    android:text="@string/record_item_ys" />
+
+                <TextView
+                    android:id="@+id/record_item_yd"
+                    style="@style/style_record_tip_2"
+                    android:drawableTop="@drawable/ic_yd_no"
+                    android:text="@string/record_item_yd" />
+
+                <TextView
+                    android:id="@+id/record_item_aa"
+                    style="@style/style_record_tip_2"
+                    android:drawableTop="@drawable/ic_aa_no"
+                    android:text="@string/date_text_aa" />
+
+                <TextView
+                    android:id="@+id/record_item_yjl"
+                    style="@style/style_record_tip_2"
+                    android:drawableTop="@drawable/ic_yj_come_no"
+                    android:text="@string/record_item_yjl" />
+
+                <TextView
+                    android:id="@+id/record_item_yjz"
+                    style="@style/style_record_tip_2"
+                    android:drawableTop="@drawable/ic_yj_gone_no"
+                    android:text="@string/record_item_yjz" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/record_items"
+                android:id="@+id/record_items_group2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:layout_below="@+id/record_tips"
+                android:layout_below="@+id/record_items_group1"
                 android:layout_marginTop="6dp"
-                android:orientation="horizontal">
-
-                <TextView
-                    style="@style/style_record_tip_2"
-                    android:drawableTop="@drawable/test_image" />
-
-                <TextView
-                    style="@style/style_record_tip_2"
-                    android:drawableTop="@drawable/test_image" />
-
-                <TextView
-                    style="@style/style_record_tip_2"
-                    android:drawableTop="@drawable/test_image" />
-
-                <TextView
-                    style="@style/style_record_tip_2"
-                    android:drawableTop="@drawable/test_image" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:background="@android:color/white"
-                android:layout_below="@+id/record_items"
-                android:layout_marginTop="6dp"
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/record_item_tw"
                     style="@style/style_record_tip_3"
-                    android:drawableLeft="@drawable/test_image" />
+                    android:drawableLeft="@drawable/ic_tw"
+                    android:text="@string/record_item_tw" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
+
+                <TextView
+                    android:id="@+id/record_item_pl"
+                    style="@style/style_record_tip_3"
+                    android:drawableLeft="@drawable/ic_pl"
+                    android:text="@string/record_item_pl" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
+
+                <TextView
+                    android:id="@+id/record_item_zy"
+                    style="@style/style_record_tip_3"
+                    android:drawableLeft="@drawable/ic_pl"
+                    android:text="@string/record_item_zy" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     style="@style/style_record_tip_3"
-                    android:drawableLeft="@drawable/test_image" />
+                    android:drawableLeft="@drawable/ic_bd"
+                    android:text="@string/record_item_bd" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     style="@style/style_record_tip_3"
-                    android:drawableLeft="@drawable/test_image" />
+                    android:drawableLeft="@drawable/ic_bw"
+                    android:text="@string/record_item_bw" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
+                    android:id="@+id/record_item_feeling"
                     style="@style/style_record_tip_3"
-                    android:drawableLeft="@drawable/test_image" />
+                    android:drawableLeft="@drawable/ic_bw"
+                    android:text="@string/record_item_feeling" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
+
+                <TextView
+                    android:id="@+id/record_item_symptom"
+                    style="@style/style_record_tip_3"
+                    android:drawableLeft="@drawable/ic_bw"
+                    android:text="@string/record_item_symptom" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
+
+                <TextView
+                    android:id="@+id/record_item_makewish"
+                    style="@style/style_record_tip_3"
+                    android:drawableLeft="@drawable/ic_bw"
+                    android:text="@string/record_item_makewish" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/calendar_record_item_divider_bg" />
             </LinearLayout>
         </RelativeLayout>
 

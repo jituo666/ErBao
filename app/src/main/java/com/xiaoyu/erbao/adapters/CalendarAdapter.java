@@ -2,10 +2,7 @@ package com.xiaoyu.erbao.adapters;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
@@ -32,7 +29,6 @@ public class CalendarAdapter extends BaseAdapter {
     private Context mContext;
     private String[] mDateArray = new String[42]; // 一个Gridview中的日期存入此数组中
     private MyCalendar mMyCalendar = null;
-    private Drawable drawable = null;
 
     private String mCurrentYear = "";
     private String mCurrentMonth = "";
@@ -43,8 +39,6 @@ public class CalendarAdapter extends BaseAdapter {
 
     private String showYear = ""; // 用于在头部显示的年份
     private String showMonth = ""; // 用于在头部显示的月份
-    private String leapMonth = ""; // 闰哪一个月
-    private String cyclical = ""; // 天干地支
     // 系统当前时间
     private String mCurrentSysDate = "";
     private String mCurrentSysYear = "";
@@ -132,24 +126,17 @@ public class CalendarAdapter extends BaseAdapter {
         sp.setSpan(new RelativeSizeSpan(1.2f), 0, d.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         textView.setText(sp);
-        textView.setTextColor(Color.GRAY);
+        textView.setTextColor(mContext.getResources().getColor(R.color.calendar_other_month));
 
         if (position < mDaysOfMonth + mDayOfWeek && position >= mDayOfWeek) {
             // 当前月信息显示
-            textView.setTextColor(Color.BLACK);// 当月字体设黑
-            drawable = new ColorDrawable(Color.rgb(23, 126, 214));
-//            if (position % 7 == 0 || position % 7 == 6) {
-//                // 当前月信息显示
-//                textView.setTextColor(Color.rgb(23, 126, 214));// 当月字体设黑
-//                drawable = new ColorDrawable(Color.rgb(23, 126, 214));
-//            }
+            textView.setTextColor(mContext.getResources().getColor(R.color.calendar_curr_month));// 当月字体设黑
+
         }
 
         if (currentFlag == position) {
             // 设置当天的背景
-            drawable = new ColorDrawable(Color.rgb(23, 126, 214));
-            textView.setBackgroundDrawable(drawable);
-            textView.setTextColor(Color.WHITE);
+            textView.setBackgroundResource(R.drawable.ic_td);
         }
         return convertView;
     }

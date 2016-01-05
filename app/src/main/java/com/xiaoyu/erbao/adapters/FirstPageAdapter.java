@@ -80,13 +80,13 @@ public class FirstPageAdapter extends BaseAdapter {
     }
 
     private void initToolboxView(ViewGroup rootView){
-        ViewGroup tool_1 = (ViewGroup)rootView.findViewById(R.id.tool_1);
+        View tool_1 = rootView.findViewById(R.id.tool_1);
         tool_1.setOnClickListener(mListner);
-        ViewGroup tool_2 = (ViewGroup)rootView.findViewById(R.id.tool_2);
+        View tool_2 = rootView.findViewById(R.id.tool_2);
         tool_2.setOnClickListener(mListner);
-        ViewGroup tool_3 = (ViewGroup)rootView.findViewById(R.id.tool_3);
+        View tool_3 = rootView.findViewById(R.id.tool_3);
         tool_3.setOnClickListener(mListner);
-        ViewGroup tool_4 = (ViewGroup)rootView.findViewById(R.id.tool_4);
+        View tool_4 = rootView.findViewById(R.id.tool_4);
         tool_4.setOnClickListener(mListner);
     }
 }

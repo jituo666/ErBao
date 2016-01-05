@@ -17,17 +17,22 @@
     <color name="date_yj">#ff73a8</color>
     <color name="date_aq">#4bc2ff</color>
     <color name="date_pl">#ff6464</color>
+    <color name="date_yc_yj">#fec3d5</color>
+    <color name="date_yj_2">#ff5c8a</color>
+    <color name="date_pl_2">#ff6464</color>
 
     <color name="date_yj_bg">#fff0f0</color>
     <color name="date_aq_bg">#f0f8ff</color>
     <color name="date_pl_bg">#fcedf8</color>
     <color name="alarm_text_color">#666666</color>
 
-    <color name="calendar_other_month">#c5c5c5</color>
+    <color name="calendar_other_month">#cccccc</color>
     <color name="calendar_curr_month">#666666</color>
-    <color name="calendar_bar_bg">#f5f5f5</color>
+    <color name="calendar_bar_bg">#f4f4f4</color>
+    <color name="calendar_bar_text_color">#999999</color>
     <color name="calendar_date_pl">#ff6464</color>
     <color name="calendar_date_yj">#ff5c8a</color>
     <color name="calendar_date_yj_yc">#fec3d5</color>
     <color name="calendar_date_today">#ff3dafa5</color>
+    <color name="calendar_record_item_divider_bg">#e1e0e0</color>
 </resources>

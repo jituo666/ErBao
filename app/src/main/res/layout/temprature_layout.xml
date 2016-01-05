@@ -10,27 +10,28 @@
         android:id="@+id/record_tips"
         android:layout_width="match_parent"
         android:layout_height="28dp"
-        android:layout_alignParentTop="true"
         android:background="@android:color/white">
 
         <TextView
             android:id="@+id/tip_aq"
-            style="@style/style_record_tip_1"
+            style="@style/style_record_items_0"
             android:layout_centerHorizontal="true"
             android:drawableLeft="@drawable/shape_circle_aq"
             android:text="@string/date_text_aq"
             android:textColor="@color/date_aq" />
 
         <TextView
-            style="@style/style_record_tip_1"
+            style="@style/style_record_items_0"
             android:layout_toLeftOf="@+id/tip_aq"
+            android:layout_marginRight="48dp"
             android:drawableLeft="@drawable/shape_circle_yj"
             android:text="@string/date_text_yj"
             android:textColor="@color/date_yj" />
 
         <TextView
-            style="@style/style_record_tip_1"
+            style="@style/style_record_items_0"
             android:layout_toRightOf="@+id/tip_aq"
+            android:layout_marginLeft="48dp"
             android:drawableLeft="@drawable/shape_circle_pl"
             android:text="@string/date_text_pl"
             android:textColor="@color/date_pl" />
@@ -47,33 +48,33 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:background="@android:color/white"
-        android:layout_height="84dp">
+        android:layout_height="84dp"
+        android:background="@android:color/white">
 
         <TextView
             android:layout_width="88dp"
             android:layout_height="28dp"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="23.5dp"
             android:layout_centerVertical="true"
-            android:text="@string/temp_input_alarm"
-            android:scaleType="fitCenter"
-            android:gravity="left|center_vertical"
-            android:textSize="@dimen/common_xsmall_text_size"
-            android:drawablePadding="2dp"
-            android:paddingLeft="4dp"
+            android:layout_marginLeft="23.5dp"
+            android:background="@drawable/alarm_bg"
             android:drawableLeft="@drawable/ic_alarm_clock"
-            android:background="@drawable/alarm_bg" />c
+            android:drawablePadding="2dp"
+            android:gravity="left|center_vertical"
+            android:paddingLeft="4dp"
+            android:scaleType="fitCenter"
+            android:text="@string/temp_input_alarm"
+            android:textSize="@dimen/common_xsmall_text_size" />c
 
         <TextView
             android:layout_width="74dp"
             android:layout_height="74dp"
-            android:text="@string/temp_input"
             android:layout_alignParentRight="true"
             android:layout_marginRight="23.5dp"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/common_small_text_size"
+            android:background="@drawable/ic_thermometer_bottom"
             android:gravity="center"
-            android:background="@drawable/ic_thermometer_bottom" />
+            android:text="@string/temp_input"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/common_small_text_size" />
     </RelativeLayout>
 </LinearLayout>

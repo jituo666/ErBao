@@ -32,7 +32,7 @@
             android:layout_width="42dp"
             android:layout_height="match_parent"
             android:scaleType="center"
-            android:src="@drawable/prev_month" />
+            android:src="@drawable/ic_arrow_left" />
 
         <TextView
             android:id="@+id/current_month"
@@ -51,7 +51,7 @@
             android:layout_width="42dp"
             android:layout_height="match_parent"
             android:scaleType="center"
-            android:src="@drawable/next_month" />
+            android:src="@drawable/ic_arrow_right" />
     </LinearLayout>
 
 </RelativeLayout>
