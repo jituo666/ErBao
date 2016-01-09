@@ -1,12 +1,106 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.xiaoyu.erbao.entries.MainActivity">
+    android:background="@color/common_divider_color"
+    android:orientation="vertical">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/fragment_my_center" />
+        android:layout_height="150dp"
+        android:background="@drawable/my_center_header_bg">
+
+        <LinearLayout
+            android:id="@+id/head_image"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/head_image_circle"
+            android:padding="5dp">
+
+            <com.xiaoyu.erbao.cctrls.CircleImageView
+                android:layout_width="64dp"
+                android:layout_gravity="center"
+                android:layout_height="64dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_tw"
+                app:shape="circle" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/head_image"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:text="Tony"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/common_middle_text_size" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@color/common_divider_color"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/manual_help"
+                style="@style/style_record_tip_3"
+                android:drawableLeft="@drawable/ic_user_guide"
+                android:text="@string/my_center_manual" />
+
+            <TextView
+                android:id="@+id/my_fav"
+                style="@style/style_record_tip_3"
+                android:drawableLeft="@drawable/ic_fav_item"
+                android:text="@string/my_center_fav" />
+
+            <TextView
+                android:id="@+id/mens_change"
+                style="@style/style_record_tip_3"
+                android:background="@color/common_list_item_bg"
+                android:drawableLeft="@drawable/ic_mens_change"
+                android:text="@string/my_center_mens" />
+
+            <TextView
+                android:id="@+id/user_feedback"
+                style="@style/style_record_tip_3"
+                android:layout_marginTop="12dp"
+                android:drawableLeft="@drawable/ic_user_feedback"
+                android:text="@string/my_center_feedback" />
+
+            <TextView
+                android:id="@+id/version_check"
+                style="@style/style_record_tip_3"
+                android:drawableLeft="@drawable/ic_verson"
+                android:text="@string/my_center_version" />
+
+            <TextView
+                android:id="@+id/about"
+                style="@style/style_record_tip_3"
+                android:drawableLeft="@drawable/ic_about"
+                android:text="@string/my_center_about" />
+
+            <TextView
+                android:id="@+id/exit_app"
+                style="@style/style_record_tip_3"
+                android:layout_marginTop="12dp"
+                android:background="@color/common_list_item_bg"
+                android:drawableLeft="@drawable/ic_exit"
+                android:text="@string/my_center_exit" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

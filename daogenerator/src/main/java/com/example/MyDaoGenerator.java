@@ -46,11 +46,12 @@ public class MyDaoGenerator {
         Entity newsList = schema.addEntity("NewsList");
         newsList.addIdProperty();
         newsList.addIntProperty("newsId");
+        newsList.addIntProperty("newsType");
         newsList.addStringProperty("title");
         newsList.addStringProperty("summary");
         newsList.addStringProperty("thumPicUrl");
         newsList.addStringProperty("contentText");
-        newsList.addStringProperty("pictureUrls");
+        newsList.addStringProperty("contentUrls");
         newsList.addDateProperty("date");
         newsList.addBooleanProperty("read");
         newsList.addStringProperty("eyes");
@@ -66,7 +67,7 @@ public class MyDaoGenerator {
         newsList.addStringProperty("summary");
         newsList.addStringProperty("thumPicUrl");
         newsList.addStringProperty("contentText");
-        newsList.addStringProperty("pictureUrls");
+        newsList.addStringProperty("contentUrls");
         newsList.addDateProperty("date");
         newsList.addBooleanProperty("read");
         newsList.addStringProperty("eyes");

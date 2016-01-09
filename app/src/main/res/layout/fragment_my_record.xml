@@ -176,10 +176,6 @@
                     android:drawableLeft="@drawable/ic_tw"
                     android:text="@string/record_item_tw" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     android:id="@+id/record_item_pl"
@@ -187,10 +183,6 @@
                     android:drawableLeft="@drawable/ic_pl"
                     android:text="@string/record_item_pl" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     android:id="@+id/record_item_zy"
@@ -198,30 +190,18 @@
                     android:drawableLeft="@drawable/ic_pl"
                     android:text="@string/record_item_zy" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     style="@style/style_record_tip_3"
                     android:drawableLeft="@drawable/ic_bd"
                     android:text="@string/record_item_bd" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     style="@style/style_record_tip_3"
                     android:drawableLeft="@drawable/ic_bw"
                     android:text="@string/record_item_bw" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     android:id="@+id/record_item_feeling"
@@ -229,10 +209,6 @@
                     android:drawableLeft="@drawable/ic_bw"
                     android:text="@string/record_item_feeling" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     android:id="@+id/record_item_symptom"
@@ -240,21 +216,14 @@
                     android:drawableLeft="@drawable/ic_bw"
                     android:text="@string/record_item_symptom" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
 
                 <TextView
                     android:id="@+id/record_item_makewish"
                     style="@style/style_record_tip_3"
                     android:drawableLeft="@drawable/ic_bw"
+                    android:background="@color/common_list_item_bg"
                     android:text="@string/record_item_makewish" />
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/calendar_record_item_divider_bg" />
             </LinearLayout>
         </RelativeLayout>
 

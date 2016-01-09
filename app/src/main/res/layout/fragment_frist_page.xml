@@ -7,10 +7,12 @@
         android:id="@+id/first_page_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:scrollbars="none"
         android:overScrollMode="never"
         ptr:ptrShowIndicator="false"
+        android:divider="@android:color/transparent"
         ptr:ptrAnimationStyle="flip"
-        ptr:ptrMode="both">
+        ptr:ptrMode="pullFromEnd">
 
     </com.handmark.pulltorefresh.library.PullToRefreshListView>
 

@@ -1,10 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- common  color-->
+    <color name="common_divider_color">#f0efeb</color>
+    <color name="common_list_item_bg">@android:color/white</color>
+
+    <!-- end common color-->
+
+    <!-- common text color-->
+
+    <color name="common_text_color_white">#e8e8e8</color>
+    <color name="common_text_color_gray">#e8e8e8</color>
+    <color name="common_text_color_black">#e8e8e8</color>
+
+    <color name="common_text_color_normal">#e8e8e8</color>
+    <color name="common_text_color_major">#e8e8e8</color>
+    <color name="common_text_color_secondary">#e8e8e8</color>
+
+    <!-- end common text color-->
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="title_bar_bg">#3dafa5</color>
 
+    <color name="fp_header_bg">#3dafa5</color>
+    <color name="fp_circle_outer_color">#eaedf1</color>
+    <color name="fp_circle_text_color">#999999</color>
+    <color name="fp_circle_progress_color">#f77462</color>
 
     <!-- Temprature layout color -->
 

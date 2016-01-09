@@ -14,7 +14,8 @@
     <LinearLayout
         android:id="@+id/buttonPanel"
         android:layout_width="match_parent"
-        android:layout_height="52dp"
+        android:layout_height="48dp"
+        android:background="@drawable/main_menu_bg"
         android:orientation="horizontal">
 
         <TextView

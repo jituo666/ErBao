@@ -1,22 +1,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/current_day"
     android:layout_width="match_parent"
-    android:layout_height="136dp"
-    android:minHeight="128dp"
+    android:layout_height="174dp"
+    android:minHeight="174dp"
+    android:background="#3cb8ad"
     android:orientation="vertical">
 
-    <ImageView
-        android:layout_width="96dp"
-        android:src="@drawable/test_image"
-        android:layout_margin="8dp"
-        android:scaleType="fitCenter"
+    <com.xiaoyu.erbao.cctrls.CircleDisplay
+        android:id="@+id/hy_lv"
+        android:layout_width="82dp"
+        android:layout_height="82dp"
         android:layout_gravity="center_horizontal"
-        android:layout_height="96dp" />
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="18dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="24dp"
+        android:layout_marginBottom="12dp"
         android:gravity="center"
-        android:textSize="16dp"
-        android:text="66666666666666" />
+        android:textColor="@android:color/white"
+        android:text="66666666666666"
+        android:textSize="12dp" />
+    <View
+        android:layout_width="match_parent"
+        android:background="@drawable/fp_wave_bg"
+        android:layout_height="30dp"/>
 </LinearLayout>
