@@ -2,11 +2,16 @@ package com.xiaoyu.erbao;
 
 import android.app.Application;
 
+import com.xiaoyu.erbao.core.DBManager;
+
 public class ErBaoApplication extends Application {
 
-	@Override
-	public void onCreate() {
-		super.onCreate();
-	}
+    public DBManager mDBManager;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mDBManager = DBManager.getInstance(this);
+    }
 
 }

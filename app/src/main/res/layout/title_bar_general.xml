@@ -32,7 +32,6 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:gravity="center"
-        android:text="2015年12月"
         android:textSize="@dimen/title_bar_text_size" />
 
 </RelativeLayout>

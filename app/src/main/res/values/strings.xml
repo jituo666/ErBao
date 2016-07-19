@@ -2,6 +2,10 @@
     <string name="app_name">51二宝</string>
     <string name="common_string_hyl">好孕率</string>
     <string name="common_more">更多</string>
+
+    <string name="common_ok">确定</string>
+    <string name="common_cancel">取消</string>
+
     <string name="fragment_first_page">首页</string>
     <string name="fragment_my_record">记录</string>
     <string name="fragment_my_classroom">课堂</string>
@@ -19,7 +23,13 @@
     <string name="date_text_plr">排卵日</string>
     <string name="date_text_yc">预测期</string>
     <string name="date_text_aa">爱爱</string>
-    <string name="temp_input">请输入\n体温</string>
+    <string name="temp_input">输入体温</string>
+    <string name="temp_update">修改体温</string>
+    <string name="temp_batch_input">批量输入</string>
+    <string name="temp_input_commit">提交</string>
+    <string name="temp_input_tip">输入\n体温</string>
+    <string name="temp_update_tip">修改\n体温</string>
+    <string name="temp_format_input">请输入正确的温度</string>
     <string name="temp_input_alarm">8:00 提醒</string>
 
     <!-- -->

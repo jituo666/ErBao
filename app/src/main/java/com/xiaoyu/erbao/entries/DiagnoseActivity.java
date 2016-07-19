@@ -12,7 +12,7 @@ public class DiagnoseActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.setContentView(R.layout.temprature_layout);
+        this.setContentView(R.layout.temperature_activity);
     }
 
     @Override

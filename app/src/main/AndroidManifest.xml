@@ -27,9 +27,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name="com.xiaoyu.erbao.entries.DiagnoseActivity"></activity>
         <activity android:name="com.xiaoyu.erbao.entries.MakeWishActivity"></activity>
         <activity android:name="com.xiaoyu.erbao.entries.TempratureActivity"></activity>
+        <activity android:name="com.xiaoyu.erbao.entries.TemperatureBatchInputActivity"></activity>
         <activity android:name="com.xiaoyu.erbao.entries.LabSheetActivity"></activity>
         <activity android:name="com.xiaoyu.erbao.myCenter.LoginActivity"></activity>
         <activity android:name="com.xiaoyu.erbao.myCenter.MyCenterActivity"></activity>

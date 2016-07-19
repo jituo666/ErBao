@@ -5,8 +5,19 @@
     android:orientation="vertical"
     tools:context="com.xiaoyu.erbao.entries.MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/classroom_header"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/fragment_my_classroom" />
+        android:layout_height="120dp" />
+
+    <ExpandableListView
+        android:id="@+id/knowlege_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@android:color/transparent"
+        android:scrollbars="none"
+        android:childDivider="@android:color/transparent"
+        android:overScrollMode="never">
+
+    </ExpandableListView>
 </LinearLayout>

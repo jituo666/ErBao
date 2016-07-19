@@ -87,7 +87,7 @@ public class TempViewLayout {
         float middleGrad = (count) / 2;
         for (int i = 0; i < count; i++) {
             mGradLabels[count - 1 - i] = String.format("%2.1f", (365 - (middleGrad - i) * 5.0f) / 10);
-            // Log.d("xxdd", i + " -------- " + mGradLabels[i]);
+
         }
         //最顶部和最底部的温度刻度目前为空
         mGradLabels[0] = "";

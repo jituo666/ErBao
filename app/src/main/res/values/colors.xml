@@ -11,7 +11,7 @@
 
     <color name="common_text_color_white">#e8e8e8</color>
     <color name="common_text_color_gray">#e8e8e8</color>
-    <color name="common_text_color_black">#e8e8e8</color>
+    <color name="common_text_color_black">#000000</color>
 
     <color name="common_text_color_normal">#e8e8e8</color>
     <color name="common_text_color_major">#e8e8e8</color>

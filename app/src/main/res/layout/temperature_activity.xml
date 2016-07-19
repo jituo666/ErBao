@@ -52,6 +52,7 @@
         android:background="@android:color/white">
 
         <TextView
+            android:id="@+id/temperature_batch_input"
             android:layout_width="88dp"
             android:layout_height="28dp"
             android:layout_alignParentLeft="true"
@@ -63,17 +64,17 @@
             android:gravity="left|center_vertical"
             android:paddingLeft="4dp"
             android:scaleType="fitCenter"
-            android:text="@string/temp_input_alarm"
+            android:text="@string/temp_batch_input"
             android:textSize="@dimen/common_xsmall_text_size" />c
 
         <TextView
+            android:id="@+id/temperature_input"
             android:layout_width="74dp"
             android:layout_height="74dp"
             android:layout_alignParentRight="true"
             android:layout_marginRight="23.5dp"
             android:background="@drawable/ic_thermometer_bottom"
             android:gravity="center"
-            android:text="@string/temp_input"
             android:textColor="@android:color/white"
             android:textSize="@dimen/common_small_text_size" />
     </RelativeLayout>

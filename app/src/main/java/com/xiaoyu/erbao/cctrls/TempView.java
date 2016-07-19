@@ -5,7 +5,6 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,7 +14,6 @@ import com.xiaoyu.erbao.utils.Util;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
 
 /**
  * Created by jituo on 15/12/25.
@@ -32,7 +30,7 @@ public class TempView extends View {
     private int mTemperatures[];
 
     public interface ScrollListener {
-        public void onScrollTo(int index);
+        void onScrollTo(int distanceToCurrentDay);
     }
 
     public TempView(Context context) {
@@ -58,15 +56,16 @@ public class TempView extends View {
         mLayout = new TempViewLayout(getResources(), 0, 0);
         mTempAtrrs = mLayout.getLayoutAtrrs();
         mDateFormat = new SimpleDateFormat("MM/dd");
-        //test
+        //test data
         mTemperatures = new int[TempViewLayout.TOTAL_SHOW_DAYS + 1];
         for (int i = 0; i < mTemperatures.length; i++) {
-            if (i <= TempViewLayout.PRE_SHOW_DAYS) {
-                mTemperatures[i] = Util.INVALIDE_VALUE;
-            } else {
-                mTemperatures[i] = 360 + new Random().nextInt(11);
-            }
+            mTemperatures[i] = Util.INVALIDE_VALUE;
         }
+    }
+
+    public void setTemperature(int temperature[]) {
+        mTemperatures = temperature;
+        invalidate();
     }
 
     @Override
@@ -107,8 +106,9 @@ public class TempView extends View {
                 }
                 invalidate();
             } else {
-                if (mScrollListener != null)
+                if (mScrollListener != null) {
                     mScrollListener.onScrollTo(mLayout.getVisibleStart());
+                }
             }
         }
     }
@@ -157,15 +157,12 @@ public class TempView extends View {
                             toX - TempViewLayout.PRE_SHOW_DAYS * columnWidth + mTempAtrrs.gradTextLeftMargin,
                             toY, gradLabelPaint);
                     gridLinePaint.setColor(mTempAtrrs.dividerLineColor);
-                    Log.i("xxdd", i + "----------- bold");
                 } else {
                     gridLinePaint.setColor(mTempAtrrs.gridLineColor);
-                    Log.i("xxdd", i + "----------- non-bold");
                 }
             } else {
                 // 横线-网络线
                 gridLinePaint.setColor(mTempAtrrs.gridLineColor); // 横线
-                Log.i("xxdd", i + "----------- non-bold");
             }
             c.drawLine(fromX, fromY, toX, toY, gridLinePaint);
         }
@@ -182,6 +179,7 @@ public class TempView extends View {
         c.drawRect(0, 0, mLayout.getContainerWidth(), mLayout.getDateTextHeight(), dateBg);
     }
 
+    //绘制有效温度数据
     public void drawTemperatureLine(Canvas c) {
         float middleLine = mLayout.getMiddleGridPos();
         float maxOffset = (TempViewLayout.ROW_COUNT / TempViewLayout.GRAD_STEP + 1) / 2 * TempViewLayout.GRAD_STEP;
@@ -194,18 +192,22 @@ public class TempView extends View {
         tempLinePaint.setAntiAlias(true);
         tempLinePaint.setStrokeWidth(mTempAtrrs.tempLineSize);
         tempLinePaint.setColor(mTempAtrrs.tempLineColor);
+
         float offsetX = (mLayout.getColumnWidth() - mScroller.getCurrX() % mLayout.getColumnWidth()) % mLayout.getColumnWidth();
         float xPos[] = new float[TempViewLayout.COLUMN_COUNT + 3];
         float yPos[] = new float[TempViewLayout.COLUMN_COUNT + 3];
         // 加2是因为左右两边各要多绘一个温度
         for (int i = 0; i <= TempViewLayout.COLUMN_COUNT + 2; i++) {
             int offset = (mTemperatures[i + mLayout.getVisibleStart()] - TempViewLayout.MIDDLE_GRAD); // 温度和中间线的偏移量
+
+            // 超过记录范围最大值或者低于最小值都是无效数据
             if (Math.abs(offset) > maxOffset || Math.abs(offset) > minOffset) {
                 lastX = Util.INVALIDE_VALUE;
                 lastY = Util.INVALIDE_VALUE;
             } else {
                 float x = offsetX + mLayout.getContainerWidth() - mLayout.getColumnWidth() * (i - 1);//减1是因为右边要多绘制一个温度
                 float y = middleLine - offset * mLayout.getRowHeight();
+                // 只绘制有效温度数据
                 if (lastX != Util.INVALIDE_VALUE && lastY != Util.INVALIDE_VALUE) {
                     c.drawLine(x, y, lastX, lastY, tempLinePaint);
                 }
@@ -215,6 +217,7 @@ public class TempView extends View {
                 lastY = y;
             }
         }
+        //绘制有效温度点
         for (int i = 0; i <= TempViewLayout.COLUMN_COUNT + 2; i++) {
             if (yPos[i] > 0.0f) {
                 tempDotPaint.setColor(Color.WHITE);
